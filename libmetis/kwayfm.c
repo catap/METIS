@@ -199,7 +199,10 @@ void Greedy_KWayCutOptimize(ctrl_t *ctrl, graph_t *graph, idx_t niter,
       vstatus[i] = VPQSTATUS_EXTRACTED;
 
       myrinfo = graph->ckrinfo+i;
-      mynbrs  = ctrl->cnbrpool + myrinfo->inbr;
+      if (myrinfo->inbr == -1)
+        mynbrs  = ctrl->cnbrpool;
+      else
+        mynbrs  = ctrl->cnbrpool + myrinfo->inbr;
 
       from = where[i];
       vwgt = graph->vwgt[i];
