@@ -14,7 +14,7 @@
 
 #include "metisbin.h"
 
-
+#include <sys/resource.h>
 
 /*************************************************************************/
 /*! Let the game begin! */
@@ -189,7 +189,6 @@ void MPReportResults(params_t *params, mesh_t *mesh, idx_t *epart, idx_t *npart,
   printf("  Max memory used:\t\t %7.3"PRREAL" MB\n", (real_t)(params->maxmemory/(1024.0*1024.0)));
 
   {
-    struct rusage usage;
     getrusage(RUSAGE_SELF, &usage);
     printf("  rusage.ru_maxrss:\t\t %7.3"PRREAL" MB\n", (real_t)(usage.ru_maxrss/(1024.0)));
   }
