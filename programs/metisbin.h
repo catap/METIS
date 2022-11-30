@@ -20,7 +20,7 @@
 #include <signal.h>
 #include <setjmp.h>
 #include <assert.h>
-
+#include <sys/resource.h>
 
 #if defined(ENABLE_OPENMP)
   #include <omp.h>
